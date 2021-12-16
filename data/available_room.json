@@ -1,1 +1,114 @@
-{}
+{
+	"105":{
+		"num_students": 0,
+		"students": [],
+		"responsible_student":{
+			"name": ""
+		},
+		"accepted": false,
+		"date": {
+			"now":"",
+			"week later": ""
+		},
+		"week":{
+			"Monday":{
+				"from":9,
+				"to":15,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			},
+			"Tuesday":
+			{
+				"from":6,
+				"to":8,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			}
+		}
+	},
+	"405":{
+		"num_students": 0,
+		"students": [],
+		"responsible_student":{
+			"name": ""
+		},
+		"accepted": false,
+		"week":{
+			"Monday":{
+				"from":7,
+				"to":13,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			},
+			"Tuesday":
+			{
+				"from":6,
+				"to":12,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			}
+		}
+	},
+	"203":{
+		"num_students": 0,
+		"students": [],
+		"responsible_student":{
+			"name": ""
+		},
+		"accepted": false,
+		"week":{
+			"Monday":{
+				"from":8,
+				"to":13,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			},
+			"Tuesday":
+			{
+				"from":10,
+				"to":17,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			}
+		}
+	},
+	"407":{
+		"num_students": 0,
+		"students": [],
+		"responsible_student":{
+			"name": ""
+		},
+		"accepted": false,
+		"week":{
+			"Monday":{
+				"from":9,
+				"to":13,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			},
+			"Tuesday":
+			{
+				"from":10,
+				"to":17,
+				"date": {
+					"now":"",
+					"week later": ""
+					}
+			}
+		}
+	}
+}

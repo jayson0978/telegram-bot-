@@ -82,10 +82,12 @@ def get_keyboard(button_names):
 	return keyboard
 
 
-def rooms_text(initial_text, able_rooms):
+def rooms_text(initial_text, able_rooms, user_lan):
 	text_lines = ""
 	count = 0
 	room_cond = {}
+	if able_rooms == {}:     # if there is no rooms available, report this to the user
+		return lan_data[user_lan]["no_rooms"]
 	for num in able_rooms:
 		room_cond[num] = able_rooms[num]["num_students"]
 	for room_num, student_num in room_cond.items():
@@ -133,8 +135,6 @@ def get_buttons(data: dict, row_width: int):
 	return keyboard
 
 
-
-
 #-----------------------------start commans------------------------#
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
@@ -142,6 +142,8 @@ async def process_start_command(message: types.Message):
 		r_lan_data[str(message.from_user.id)] = "eng"
 
 	user_lan = r_lan_data[str(message.from_user.id)]
+	with open("data/user_lan.json", "w") as file:
+		json.dump(r_lan_data, file)
 
 	msg = text_update(text=lan_data[user_lan]["greating_msg"], name123=message.from_user.first_name)
 
@@ -393,7 +395,7 @@ async def process_age(message: types.Message, state: FSMContext):
 
 	await Form.next()
 	msg = text_update(lan_data[user_lan]["insert_time"], room123=data["room_num"])
-	today = datetime.datetime.today().weekday() + 1   #weekday as a number from 0 to 6
+	today = int(datetime.datetime.now().strftime("%w"))  #weekday as a number from 0 to 6
 	days = "0123456"
 	before = days[today:]
 	after = days[:today]
@@ -507,7 +509,7 @@ booking_btn_name = [lan_data[lan]["booking"] for lan in lan_data]
 @dp.message_handler(lambda message: message.text in booking_btn_name)
 async def without_puree(message: types.Message):
 	user_lan = r_lan_data[str(message.from_user.id)]
-	msg = rooms_text(initial_text=lan_data[user_lan]["rooms"], able_rooms=able_rooms)
+	msg = rooms_text(initial_text=lan_data[user_lan]["rooms"], able_rooms=able_rooms, user_lan=user_lan)
 	await message.answer(msg, parse_mode=types.ParseMode.HTML, reply_markup=room_btns(able_rooms))
 
 
