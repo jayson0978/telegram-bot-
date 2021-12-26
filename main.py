@@ -206,6 +206,7 @@ async def reject_booking(call: types.CallbackQuery):
 		able_rooms[room_num]["students"] = []                      #clearing the room data couse the user decide to reject the bookings
 		able_rooms[room_num]["responsible_student"]["name"] = ""
 		able_rooms[room_num]["accepted"] = False
+		able_rooms[room_num]["num_students"] = 0
 		with open("data/available_room.json", "w") as file:
 			json.dump(able_rooms, file)
 		await bot.send_message(i, text=msg)
